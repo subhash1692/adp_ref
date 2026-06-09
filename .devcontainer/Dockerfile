@@ -37,7 +37,7 @@ RUN wget -q https://github.com/duckdb/duckdb/releases/latest/download/duckdb_cli
     && rm duckdb_cli-linux-amd64.zip
 
 # ─── Python packages ─────────────────────────────────────────────────────────
-COPY requirements-dev.txt /tmp/requirements-dev.txt
+COPY .devcontainer/requirements-dev.txt /tmp/requirements-dev.txt
 RUN pip install --upgrade pip \
     && pip install -r /tmp/requirements-dev.txt
 
