@@ -1,1 +1,47 @@
 
+# ─── Core Data Engineering ────────────────────────────────────────────────────
+pyspark==3.5.0
+delta-spark==3.1.0
+deltalake==0.17.0                  # delta-rs Python bindings (local dev)
+
+# ─── DuckDB ───────────────────────────────────────────────────────────────────
+duckdb==0.10.0
+
+# ─── Azure SDK ────────────────────────────────────────────────────────────────
+azure-identity==1.15.0
+azure-storage-file-datalake==12.14.0
+azure-keyvault-secrets==4.7.0
+azure-mgmt-datafactory==4.0.0
+
+# ─── Databricks ───────────────────────────────────────────────────────────────
+databricks-sdk==0.20.0
+
+# ─── Airflow ──────────────────────────────────────────────────────────────────
+apache-airflow==2.8.0
+apache-airflow-providers-databricks==6.2.0
+apache-airflow-providers-microsoft-azure==8.3.0
+
+# ─── Testing ──────────────────────────────────────────────────────────────────
+pytest==7.4.0
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+chispa==0.9.2                      # PySpark DataFrame assertion helper
+
+# ─── Code Quality ─────────────────────────────────────────────────────────────
+black==23.12.0
+isort==5.13.0
+ruff==0.1.9
+mypy==1.8.0
+pre-commit==3.6.0
+
+# ─── Jupyter (local exploration) ──────────────────────────────────────────────
+jupyterlab==4.0.0
+jupysql==0.10.0                    # %sql magic for DuckDB in notebooks
+duckdb-engine==0.10.0
+
+# ─── Data / Utils ─────────────────────────────────────────────────────────────
+pandas==2.1.0
+pyarrow==14.0.0
+requests==2.31.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
