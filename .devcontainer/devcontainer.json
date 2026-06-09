@@ -111,7 +111,7 @@
         // Databricks
         "databricks.python.envFile": "${workspaceFolder}/.env",
         // Todo Tree
-        "todo-tree.ripgrep": "/usr/bin/rg"
+        "todo-tree.ripgrep.ripgrep": "/usr/bin/rg"
       }
     }
   },
