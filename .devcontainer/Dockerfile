@@ -3,7 +3,8 @@
 FROM mcr.microsoft.com/devcontainers/python:3.11-bullseye
 
 # ─── System dependencies ──────────────────────────────────────────────────────
-RUN apt-get update && apt-get install -y \
+RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.save \
+    && apt-get update && apt-get install -y \
     curl \
     wget \
     unzip \
