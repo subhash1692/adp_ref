@@ -15,15 +15,19 @@ pip install -e ".[dev]" --quiet 2>/dev/null || echo "⚠️  No setup.py yet —
 # ─── Install pre-commit hooks ────────────────────────────────────────────────
 echo "🔧 Installing pre-commit hooks..."
 if [ -f ".pre-commit-config.yaml" ]; then
-    pre-commit install
-    echo "✅ Pre-commit hooks installed"
+    if command -v pre-commit >/dev/null 2>&1; then
+        pre-commit install || echo "⚠️  pre-commit install failed — continuing"
+        echo "✅ Pre-commit hooks installed"
+    else
+        echo "⚠️  pre-commit not found — skipping"
+    fi
 else
     echo "⚠️  No .pre-commit-config.yaml found — skipping"
 fi
 
 # ─── Install DuckDB extensions ────────────────────────────────────────────────
 echo "🦆 Installing DuckDB extensions..."
-python -c "
+if python -c "
 import duckdb
 conn = duckdb.connect()
 conn.execute(\"INSTALL delta\")
@@ -33,7 +37,11 @@ conn.execute(\"LOAD httpfs\")
 conn.execute(\"INSTALL azure\")
 conn.execute(\"LOAD azure\")
 print('✅ DuckDB extensions installed: delta, httpfs, azure')
-"
+"; then
+    echo "✅ DuckDB extension setup completed"
+else
+    echo "⚠️  DuckDB extension setup failed (often transient network issue) — continuing"
+fi
 
 # ─── Create local .env if it doesn't exist ───────────────────────────────────
 echo "🔐 Creating .env template..."
