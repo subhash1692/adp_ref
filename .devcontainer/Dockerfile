@@ -9,6 +9,7 @@ RUN rm -f /etc/apt/sources.list.d/yarn.list /etc/apt/sources.list.d/yarn.list.sa
     wget \
     unzip \
     git \
+    ripgrep \
     jq \
     build-essential \
     libssl-dev \
